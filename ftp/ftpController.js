@@ -1,6 +1,6 @@
 // ftpController.js
 const jsftp = require("jsftp");
-const logger = require("../config/logger")
+const logger = require("../config/logger");
 
 // Handle index actions
 exports.list = function (req, res , next) {
