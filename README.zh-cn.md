@@ -48,7 +48,7 @@
  * *[JS FTP]*
  * *JSON* <img src =“https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/1200px-JSON_vector_logo.svg.png” width =“25” />
 
-[JS FTP]：https://www.npmjs.com/package/jsftp
+[JS FTP]: https://www.npmjs.com/package/jsftp
 
 ### :heart: 为了开始这代码，请使用在下面的命令
 
