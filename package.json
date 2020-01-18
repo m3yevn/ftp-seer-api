@@ -1,13 +1,13 @@
 {
-  "name": "mesftp-server",
+  "name": "server-ftp",
   "version": "1.0.0",
-  "description": "FTP server for MESFTP application",
+  "description": "A Backend API server for exploring FTP directory",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "m3yevn",
-  "license": "ISC",
+  "author": "m3yevn","alfasoon"
+  "license": "MIT",
   "dependencies": {
     "app-root-path": "^2.2.1",
     "body-parser": "^1.19.0",
