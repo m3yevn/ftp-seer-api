@@ -3,6 +3,10 @@
 This API server is used to accept host,port,path,username and password to <br/>
 connect FTP server and send back directory data.
 
+Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
+
+[README.zh-cn]: https://github.com/m3yevn/server-ftp/blob/master/README.zh-cn.md
+
 ### :postbox: Request Body
  - :one: Host
  - :two: Port
