@@ -12,9 +12,11 @@ function stream(option,message,data)
         case "info":
             logger.info(message);
             break;
+            
         case "error":
             logger.error(message);
             break;
+            
         case "debug":
             logger.debug(message);
             break;
