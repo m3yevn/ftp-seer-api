@@ -1,6 +1,7 @@
 
 let router = require('express').Router();
 
+//API healthcheck
 router.get('/', function (req, res) {
     res.json({
        status: 'API Healthy',
