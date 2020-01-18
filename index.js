@@ -31,6 +31,7 @@ app.use(morgan('combined',{ stream: winston.stream }));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(bodyParser.json());
 // Setup server port
 var port = process.env.PORT || 5009;
