@@ -2,9 +2,9 @@
   "name": "server-ftp",
   "version": "1.0.0",
   "description": "A Backend API server for exploring FTP directory",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "m3yevn","alfasoon"
   "license": "MIT",
