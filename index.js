@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 // Setup server port
 var port = process.env.PORT || 5009;
 // Send message for default URL
-app.get('/', (req, res) => res.send('Welcome to MESFTP Server'));
+app.get('/', (req, res) => res.send('Welcome to FTP Seer Server'));
 // Use Api routes in the App
 app.use('/mesftp-server', apiRoutes)
 // Launch app to listen to specified port
