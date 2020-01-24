@@ -1,5 +1,5 @@
 {
-  "name": "server-ftp",
+  "name": "ftp-seer",
   "version": "1.0.0",
   "description": "A Backend API server for exploring FTP directory",
   "main": "index.js",
