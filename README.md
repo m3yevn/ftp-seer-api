@@ -1,4 +1,4 @@
-# A Backend for browsing FTP directory :white_check_mark:
+# FTP Seer - A Backend for browsing FTP directory :white_check_mark:
 
 This API server is used to accept host,port,path,username and password to <br/>
 connect FTP server and send back directory data.
