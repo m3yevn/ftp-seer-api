@@ -1,8 +1,8 @@
-const logger = require("../config/winston.js");
+const logger = require("./winston.js");
 
-function stream(option,message,data)
+stream = (option,message,data) =>
 {
-    var p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+    const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
     date= p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5];
     message ="::c - - [" + date +"] "+message;
     if(data)
@@ -23,4 +23,7 @@ function stream(option,message,data)
     }
 }
 
-module.exports = stream;
+module.exports = {
+    stream: logger.stream,
+    log: stream
+};

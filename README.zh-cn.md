@@ -3,34 +3,20 @@
 这API服务器用于接受主机（host），端口（port)，路径 (path) ，用户名(user)和密码(pass) <br/>
 连接FTP服务器并发送回目录数据。
 
-### :postbox: 请求正文
- - :one: Host
+### :postbox: 请求参数
+ - :one: Hostname
  - :two: Port
  - :three: Path
- - :four: User
- - :five: Pass
-
+ - :four: Username
+ - :five: Password
 
 ### :email: 样品申请
 ```sh
-** "\list" **
-{
-  "Host": "192.168.0.1",
-  "Port": "22",
-  "Path": "remote / path",
-  "User": "admin",
-  "Pass": "p@ssw0rd"
-}
+**"\directory?host=sample&port=21&path=sample&username=sample&password=sample"**
 ```
+
 ```sh
-**“\get”**
-{
-  "Host": "192.168.0.1",
-  "Port": "22",
-  "Path": "remote / path / file.txt",
-  "User": "admin",
-  "Pass": "p @ ssw0rd"
-}
+**"\file?host=sample&port=21&path=sample/sample.txt&username=sample&password=sample"**
 ```
 
 ### :envelope: HTTP方法
@@ -38,8 +24,8 @@
 |方法     | 路线  | 描述 |
 | ------ | ----- | ---- |
 | `GET` | “ /” |获得API健康状况|
-| `POST` | “ /list” | FTP服务器的列表目录
-| `POST` | “ /get” |在FTP服务器中获取文件内容
+| `GET` | “ /list” | FTP服务器的列表目录
+| `GET` | “ /get” |在FTP服务器中获取文件内容
 
 ### :book: 技术栈
 

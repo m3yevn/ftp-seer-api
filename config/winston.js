@@ -1,9 +1,9 @@
-var appRoot = require('app-root-path');
-var winston = require('winston');
+const appRoot = require('app-root-path');
+const winston = require('winston');
 require('winston-daily-rotate-file');
 
 // define the custom settings for each transport (file, console)
-var options = {
+const options = {
   file: {
     level: 'info',
     filename: `${appRoot}/logs/app.%DATE%.log`,
@@ -26,7 +26,7 @@ var options = {
 
 
 // instantiate a new Winston Logger with the settings defined above
-var logger = winston.createLogger({
+const logger = winston.createLogger({
   transports: [
     new winston.transports.DailyRotateFile(options.file),
     new winston.transports.Console(options.console)
@@ -36,7 +36,7 @@ var logger = winston.createLogger({
 
 // create a stream object with a 'write' function that will be used by `morgan`
 logger.stream = {
-  write: function(message, encoding) {
+  write: (message, encoding) => {
     // use the 'info' log level so the output will be picked up by both transports (file and console)
     logger.info(message);
   },

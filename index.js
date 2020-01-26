@@ -1,45 +1,37 @@
-// Import express
-let express = require('express');
-// Import Body parser
-let bodyParser = require('body-parser');
-// Initialize the app
-let app = express();
-// Import routes
-let apiRoutes = require("./api-routes")
-// Import logger
-var morgan = require('morgan');
-// Import winston
-var winston = require('./config/winston');
-// Import moment timezone
-const moment = require('moment-timezone');
+// Imports
+const express = require('express');
+const bodyParser = require('body-parser');
+const routes = require("./routes");
+const morgan = require('morgan');
+const winston = require('./config/winston');
+const logger = require("./config/logger");
+const cors = require('cors');
+const responseTime = require('response-time');
+const keys = require('./config/keys');
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+//Declare Express App //Add bodyparser for JSON  //Add CORS policy
+const app = express();
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cors())
+app.options('*', cors())
 
-
-  morgan.token('date', function() {
-    var p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+//Add logging with Morgan //Request data invalid format
+app.use(responseTime());
+morgan.token('date', () => {
+  const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
     return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
 });
-
 app.use(morgan('combined',{ stream: winston.stream }));
 
-// Configure bodyparser to handle post requests
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+//Add welcome notes //Add routes called ftpseer //Add 404 route
+app.get('/', (_, res) => res.send('Welcome to FTP Seer Server'));
+app.use('/ftpseer', routes)
+app.use('*', (_, res) => {
+  res.status(404).json({error:404,message:"Route not found"});
+});
 
-app.use(bodyParser.json());
-// Setup server port
-var port = process.env.PORT || 5009;
-// Send message for default URL
-app.get('/', (req, res) => res.send('Welcome to FTP Seer Server'));
-// Use Api routes in the App
-app.use('/mesftp-server', apiRoutes)
-// Launch app to listen to specified port
-app.listen(port, function () {
-  
+//Start the app at declare port
+app.listen(keys.port, () => {
+    logger.log('info',`Server is listening at ${keys.port}`);
 });

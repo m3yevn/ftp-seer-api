@@ -7,33 +7,20 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 
 [README.zh-cn]: https://github.com/m3yevn/server-ftp/blob/master/README.zh-cn.md
 
-### :postbox: Request Body
- - :one: Host
+### :postbox: Request Query Params
+ - :one: Hostname
  - :two: Port
  - :three: Path
- - :four: User
- - :five: Pass
+ - :four: Username
+ - :five: Password
 
 ### :email: Sample Request
 ```sh
-**"\list"**
-{
-  "host" : "192.168.0.1",
-  "port" : "22",
-  "path" : "remote/path",
-  "user" : "admin",
-  "pass" : "p@ssw0rd"
-}
+**"\directory?host=sample&port=21&path=sample&username=sample&password=sample"**
 ```
+
 ```sh
-**"\get"**
-{
-  "host" : "192.168.0.1",
-  "port" : "22",
-  "path" : "remote/path/file.txt",
-  "user" : "admin",
-  "pass" : "p@ssw0rd"
-}
+**"\file?host=sample&port=21&path=sample/sample.txt&username=sample&password=sample"**
 ```
 
 ### :envelope: HTTP Methods
@@ -41,8 +28,8 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 | Method | Route | Description |
 | ------ | ----- | ----------- |
 | `GET`  | "/"   | Getting API health |
-| `POST` | "/list" | Listing directory of FTP server |
-| `POST` | "/get"  | Getting content of a file in FTP server |
+| `GET` | "/list" | Listing directory of FTP server |
+| `GET` | "/get"  | Getting content of a file in FTP server |
 
 ### :books: Tech Stack
 
