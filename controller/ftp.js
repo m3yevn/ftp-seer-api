@@ -117,9 +117,8 @@ newFTP = (req) => {
     return Ftp;
 }
 
-//For AMS , it is a fixed mutual account to authenticate FTP server
-authFTP = (_, Ftp, error) => {
-    Ftp.auth(keys.secretUser, keys.secretKey, (err) => {
+authFTP = (req, Ftp, error) => {
+    Ftp.auth(req.query.username, req.query.password, (err) => {
         error(err);
     })
 }
