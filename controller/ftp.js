@@ -1,6 +1,7 @@
 // Imports
 const jsftp = require("jsftp");
 const logger = require("../config/logger");
+const keys = require("../config/keys");
 
 // Functions of controller
 exports.listDirectory = (req, res) => {
@@ -41,7 +42,7 @@ exports.listDirectory = (req, res) => {
     }
     catch (err) {
         logger.log("error", err);
-        res.json({
+        res.status(400).json()({
             error: err.code,
             message: { alert: err.message.split(err.code)[1] },
         })
@@ -88,13 +89,12 @@ exports.getContent = (req, res) => {
                     logger.log("info", "Ftp session ended");
                 })
             });
-
             ftpres.resume();
         });
     }
     catch (err) {
         logger.log("error", err);
-        res.json({
+        res.status(400).json({
             error: err.code,
             message: { alert: err.message },
         })
@@ -103,7 +103,7 @@ exports.getContent = (req, res) => {
 
 throwError = (res, err) => {
     logger.log("error", err);
-    res.json({
+    res.status(400).json({
         error: err.code,
         message: { alert: err.message },
     });
@@ -117,8 +117,9 @@ newFTP = (req) => {
     return Ftp;
 }
 
-authFTP = (req, Ftp, error) => {
-    Ftp.auth(req.query.username, req.query.password, (err) => {
+//For AMS , it is a fixed mutual account to authenticate FTP server
+authFTP = (_, Ftp, error) => {
+    Ftp.auth(keys.secretUser, keys.secretKey, (err) => {
         error(err);
     })
 }
