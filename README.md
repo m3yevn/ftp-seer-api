@@ -37,8 +37,8 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 | Method | Route | Description |
 | ------ | ----- | ----------- |
 | `GET`  | "/"   | Getting API health |
-| `GET` | "/list" | Listing directory of FTP server |
-| `GET` | "/get"  | Getting content of a file in FTP server |
+| `GET` | "/directory" | Listing directory of FTP server |
+| `GET` | "/file"  | Getting content of a file in FTP server |
 
 ### :books: Tech Stack
 
