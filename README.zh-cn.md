@@ -19,6 +19,13 @@
 **"\file?host=sample&port=21&path=sample/sample.txt&username=sample&password=sample"**
 ```
 
+### :zap: 试试看这个演示
+
+ - 浏览 https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
+ - 这个演示在用着 [speedtest.tele2.net]
+
+ [speedtest.tele2.net]: ftp://speedtest.tele2.net
+
 ### :envelope: HTTP方法
 
 |方法     | 路线  | 描述 |

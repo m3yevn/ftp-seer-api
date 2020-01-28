@@ -23,6 +23,13 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 **"\file?host=sample&port=21&path=sample/sample.txt&username=sample&password=sample"**
 ```
 
+### :zap: Try it on demo
+
+ - Visit https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
+ - The demo uses [speedtest.tele2.net] for testing
+
+ [speedtest.tele2.net]: ftp://speedtest.tele2.net
+
 ### :envelope: HTTP Methods
 
 | Method | Route | Description |
