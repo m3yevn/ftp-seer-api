@@ -25,9 +25,11 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 
 ### :zap: Try it on demo
 
- - Visit https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
+ - Visit [this demo]
  - The demo uses [speedtest.tele2.net] for testing
 
+
+ [this demo]: https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
  [speedtest.tele2.net]: ftp://speedtest.tele2.net
 
 ### :envelope: HTTP Methods

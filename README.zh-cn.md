@@ -21,10 +21,11 @@
 
 ### :zap: 试试看这个演示
 
- - 浏览 https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
+ - 浏览 [这里]
  - 这个演示在用着 [speedtest.tele2.net]
 
  [speedtest.tele2.net]: ftp://speedtest.tele2.net
+ [this demo]: https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&path=.
 
 ### :envelope: HTTP方法
 
