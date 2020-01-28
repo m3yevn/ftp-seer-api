@@ -32,6 +32,6 @@ app.use('*', (_, res) => {
 });
 
 //Start the app at declare port
-app.listen(keys.port, () => {
-    logger.log('info',`Server is listening at ${keys.port}`);
+app.listen(process.env.PORT || keys.port, () => {
+    logger.log('info',`Server is listening at ${process.env.PORT || keys.port}`);
 });
