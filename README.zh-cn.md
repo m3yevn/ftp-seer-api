@@ -5,6 +5,21 @@
 
 ### [![Run on Repl.it](https://repl.it/badge/github/m3yevn/ftp-seer)](https://ftp-seer--m3yevn.repl.co/)
 
+### :whale: Docker 公共存储库
+
+FTP Seer API服务器也可用作docker映像。
+运行此docker命令以使其启动并运行。
+必须预先安装Docker CLI。
+
+### [![Run on Docker](https://img.shields.io/docker/pulls/m3yevn/ftp-seer?style=for-the-badge)](https://hub.docker.com/repository/docker/m3yevn/ftp-seer)
+
+```sh
+$ docker pull m3yevn/ftpseer:latest
+$ docker run -d --name ftpseer -p 5050:5050  m3yevn/ftp-seer:latest
+```
+
+Now, FTP Seer is accessible at 5050 port of your workstation.
+
 ### :postbox: 请求参数
  - :one: Hostname
  - :two: Port
