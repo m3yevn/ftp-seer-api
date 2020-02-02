@@ -8,6 +8,9 @@ const logger = require("./config/logger");
 const cors = require('cors');
 const responseTime = require('response-time');
 const keys = require('./config/keys');
+const {version,name,
+      description,author,
+      license, publicRepo} = require('./package.json');
 
 //Declare Express App //Add bodyparser for JSON  //Add CORS policy
 const app = express();
@@ -25,7 +28,14 @@ morgan.token('date', () => {
 app.use(morgan('combined',{ stream: winston.stream }));
 
 //Add welcome notes //Add routes called ftpseer //Add 404 route
-app.get('/', (_, res) => res.send('Welcome to FTP Seer Server'));
+app.get('/', (_, res) => res.send({
+  title: name,
+  version: version,
+  description: description,
+  author: author,
+  license: license,
+  github: publicRepo
+}));
 app.use('/ftpseer', routes)
 app.use('*', (_, res) => {
   res.status(404).json({error:404,message:"Route not found"});

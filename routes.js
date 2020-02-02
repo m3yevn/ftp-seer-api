@@ -5,8 +5,22 @@ const ftpController = require('./controller/ftp');
 //API healthcheck
 router.get('/',  (_, res) => {
     res.json({
-       status: 'API Healthy',
-       message: 'Welcome to FTP Seer Server!'
+       status: 'HEALTHY',
+       message: 'Welcome to FTP Seer Server!',
+       routes:[
+           {
+            path: '/directory',
+            parameters: 'host,port,username,password,path',
+            method: 'GET',
+            description: 'Retrieving the directory list'
+           },
+           {
+            path: '/file',
+            parameters: 'host,port,username,password,path',
+            method: 'GET',
+            description: 'Retrieving the file content'
+           }
+       ]
     }
     );
 });
