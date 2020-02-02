@@ -7,6 +7,8 @@ Read this in Simplified Chinese - 看简体中文版本 [README.zh-cn]
 
 [README.zh-cn]: https://github.com/m3yevn/server-ftp/blob/master/README.zh-cn.md
 
+### [![Run on Repl.it](https://repl.it/badge/github/m3yevn/ftp-seer)](https://ftp-seer--m3yevn.repl.co/)
+
 ### :postbox: Request Query Params
  - :one: Hostname
  - :two: Port
