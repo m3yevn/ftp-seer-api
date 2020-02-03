@@ -8,10 +8,19 @@ body {
 
 .landing-page {
   display: flex;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
+}
+
+footer {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
 }
 
 .subtitle {
