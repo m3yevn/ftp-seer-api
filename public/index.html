@@ -3,7 +3,7 @@
 
 <head profile="http://www.w3.org/2005/10/profile">
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta data-n-head="1" data-hid="description" name="description"
     content="The FTP Seer API helps you explore remote server directories via FTP by using JSFTP library.">
   <meta data-n-head="1" name="keywords"
@@ -40,21 +40,89 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
     integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="main.css" />
   <title>FTP Seer API</title>
 </head>
 
 <body>
-  <div class="landing-page">
-    <h1>FTP Seer API<br />
+  <nav id="navbar">
+    <ul class="nav__menu">
+      <li><a href="#home"><i class="fa fa-home"></i>Home</a></li>
+      <li><a href="#about"><i class="fa fa-info-circle"></i>About</a></li>
+      <li><a href="#tryit"><i class="fa fa-play-circle"></i>Try It!</a></li>
+      <li><a href="#contributors"><i class="fa fa-users"></i>Contributors</a></li>
+      <li><a href="https://github.com/m3yevn/ftp-seer" target="_blank"><i class="fa fa-github"></i>Github</a></li>
+    </ul>
+    <button onclick="popupmenu()"><i class="fa fa-bars"></i></button>
+  </nav>
+  <div id="menu--mobile" class="menu--mobile">
+    <div class="menu__close-panel"><button onclick="closemenu()"><i class="fa fa-close"></i></button></div>
+    <ul class="nav__menu">
+      <li><a href="#home"><i class="fa fa-home"></i>Home</a></li>
+      <li><a href="#about"><i class="fa fa-info-circle"></i>About</a></li>
+      <li><a href="#tryit"><i class="fa fa-play-circle"></i>Try It!</a></li>
+      <li><a href="#contributors"><i class="fa fa-users"></i>Contributors</a></li>
+      <li><a href="https://github.com/m3yevn/ftp-seer" target="_blank"><i class="fa fa-github"></i>Github</a></li>
+    </ul>
+  </div>
+  <section class="section__home" id="home">
+    <h1 class="logo__title--h1"><span class="logo__title--span">FTP Seer API</span><br /><br/>
+      <img src="favicon.ico" alt="logo" /><br />
       <span class="subtitle">A Backend for exploring FTP Directory</span>
       <br />
-      <span class="subtitle"><code>$ This page is under construction.</code>
+      <br />
+      <span class="subtitle"><code>$ Explore remote server directories via FTP.</code>
         <br />
-        <span class="subtitle"><code>$ More awesome stuffs will happen here.</code>
-          <br />
-          <hr/>
-          <span class="subtitle"><code>$ For utilizing this API, visit <a href="/ftpseer">here</a>.</code></span></h1>
+        <hr />
+        <button class="pure-button pure-button-primary" onclick="gotoroutes()">GET STARTED</button>
+        </span>
+        </h1>
+  </section>
+  <section class="headline">
+    <h1>About this API</h1>
+  </section>
+  <div class="wrapper__section__about">
+    <section class="section__about" id="about">
+    </section>
+  </div>
+  <section class="headline">
+    <h1>Try it out</h1>
+  </section>
+  <div class="wrapper__section__tryit">
+    <section class="section__tryit" id="tryit">
+      <div class="pure-g">
+        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1">
+          <div class="wrapper__form">
+            <div class="pure-form">
+              <label>Try ftpseer/directory?</label>
+              <input id="input__directory" type="text" placeholder="Enter the route endpoint" value="host=speedtest.tele2.net&path=." />
+              <button id="btn__fetch__directory" class="pure-button pure-button-primary" onclick="fetchDirectory()">Fetch!</button>
+              <hr />
+              <label>Try ftpseer/file?</label>
+              <input id="input__file" type="text" placeholder="Enter the route endpoint" value="host=speedtest.tele2.net&path=./upload/{xxx}.zip" />
+              <button id="btn__fetch__file" class="pure-button pure-button-primary" onclick="fetchFile()">Fetch!</button>
+            </div>
+          </div>
+        </div>
+        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1">
+          <div class="wrapper__json__panel" id="response">
+            <label>Response:</label>
+            <textarea id="textarea__json__result" readonly></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="headline">
+    <h1>Thank you <br/><span>contributors</span></h1>
+  </section>
+  <div class="wrapper__section__contributors">
+    <section class="section__contributors" id="contributors">
+      <div class="pure-g" id="list__contributors">
+      </div>
+    </section>
   </div>
   <footer>
     <p>Crafted with ❤️ by <a href="https://github.com/m3yevn">Kevin Moe Myint Myat (m3yevn)</a></p>

@@ -1,0 +1,91 @@
+<h1>
+  <a id="user-content-ftp-seer---a-backend-for-browsing-ftp-directory-package" class="anchor" href="#ftp-seer---a-backend-for-browsing-ftp-directory-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FTP Seer - A Backend for browsing FTP directory <g-emoji class="g-emoji" alias="package" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png">📦</g-emoji>
+  </h1>
+  <p>This API server is used to accept host,port,path,username and password to <br>
+  connect FTP server and send back directory data.</p>
+  <p>Read this in Simplified Chinese - 看简体中文版本 <a href="https://github.com/m3yevn/server-ftp/blob/master/README.zh-cn.md">README.zh-cn</a></p>
+  <h3>
+  <a id="" class="anchor" href="#" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://ftp-seer--m3yevn.repl.co/" rel="nofollow"><img src="https://camo.githubusercontent.com/9f0709c0db21c8a005eabc6d594e73b765ae0c04/68747470733a2f2f7265706c2e69742f62616467652f6769746875622f6d337965766e2f6674702d73656572" alt="Run on Repl.it" data-canonical-src="https://repl.it/badge/github/m3yevn/ftp-seer" style="max-width:100%;"></a>
+  </h3>
+  <h3>
+  <a id="user-content-whale-docker-public-repository" class="anchor" href="#whale-docker-public-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="whale" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f433.png">🐳</g-emoji> Docker Public Repository</h3>
+  <p>FTP Seer API server is available as docker image also.
+  Run this docker command to get it up and running.
+  Docker CLI must be installed beforehand.</p>
+  <h3>
+  <a id="user-content--1" class="anchor" href="#-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://hub.docker.com/repository/docker/m3yevn/ftp-seer" rel="nofollow"><img src="https://camo.githubusercontent.com/930ed7557ae57eaac8f9a9826f4707e7b80cc680/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f6d337965766e2f6674702d736565723f7374796c653d666f722d7468652d6261646765" alt="Run on Docker" data-canonical-src="https://img.shields.io/docker/pulls/m3yevn/ftp-seer?style=for-the-badge" style="max-width:100%;"></a>
+  </h3>
+  <div class="highlight highlight-source-shell"><pre>$ docker pull m3yevn/ftpseer:latest
+  $ docker run -d --name ftpseer -p 5050:5050  m3yevn/ftp-seer:latest</pre></div>
+  <p>Now, FTP Seer is accessible at 5050 port of your workstation.</p>
+  <h3>
+  <a id="user-content-postbox-request-query-params" class="anchor" href="#postbox-request-query-params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="postbox" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ee.png">📮</g-emoji> Request Query Params</h3>
+  <ul>
+  <li>
+  <g-emoji class="g-emoji" alias="one" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png">1️⃣</g-emoji> Hostname</li>
+  <li>
+  <g-emoji class="g-emoji" alias="two" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png">2️⃣</g-emoji> Port</li>
+  <li>
+  <g-emoji class="g-emoji" alias="three" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png">3️⃣</g-emoji> Path</li>
+  <li>
+  <g-emoji class="g-emoji" alias="four" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png">4️⃣</g-emoji> Username</li>
+  <li>
+  <g-emoji class="g-emoji" alias="five" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/0035-20e3.png">5️⃣</g-emoji> Password</li>
+  </ul>
+  <h3>
+  <a id="user-content-email-sample-request" class="anchor" href="#email-sample-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="email" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2709.png">✉️</g-emoji> Sample Request</h3>
+  <div class="highlight highlight-source-shell"><pre><span class="pl-k">**</span><span class="pl-s"><span class="pl-pds">"</span>\directory?host=sample&amp;port=21&amp;path=sample&amp;username=sample&amp;password=sample<span class="pl-pds">"</span></span><span class="pl-k">**</span></pre></div>
+  <div class="highlight highlight-source-shell"><pre><span class="pl-k">**</span><span class="pl-s"><span class="pl-pds">"</span>\file?host=sample&amp;port=21&amp;path=sample/sample.txt&amp;username=sample&amp;password=sample<span class="pl-pds">"</span></span><span class="pl-k">**</span></pre></div>
+  <h3>
+  <a id="user-content-zap-try-it-on-demo" class="anchor" href="#zap-try-it-on-demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="zap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">⚡️</g-emoji> Try it on demo</h3>
+  <ul>
+  <li>Visit <a href="https://ftpseer.herokuapp.com/ftpseer/directory?host=speedtest.tele2.net&amp;path=." rel="nofollow">this demo</a>
+  </li>
+  <li>The demo uses speedtest.tele2.net for testing</li>
+  </ul>
+  <h3>
+  <a id="user-content-envelope-http-methods" class="anchor" href="#envelope-http-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="email" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2709.png">✉️</g-emoji> HTTP Methods</h3>
+  <table>
+  <thead>
+  <tr>
+  <th>Method</th>
+  <th>Route</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code>GET</code></td>
+  <td>"/"</td>
+  <td>Getting API health</td>
+  </tr>
+  <tr>
+  <td><code>GET</code></td>
+  <td>"/directory"</td>
+  <td>Listing directory of FTP server</td>
+  </tr>
+  <tr>
+  <td><code>GET</code></td>
+  <td>"/file"</td>
+  <td>Getting content of a file in FTP server</td>
+  </tr>
+  </tbody>
+  </table>
+  <h3>
+  <a id="user-content-books-tech-stack" class="anchor" href="#books-tech-stack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="books" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png">📚</g-emoji> Tech Stack</h3>
+  <ul>
+  <li>
+  <em>NodeJS</em> <a href="https://camo.githubusercontent.com/68296b0e44e9742c37efc44b593be02884bde26f/68747470733a2f2f6432656970397366336f6f3663322e636c6f756466726f6e742e6e65742f746167732f696d616765732f3030302f3030302f3235362f66756c6c2f6e6f64656a736c6f676f2e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/68296b0e44e9742c37efc44b593be02884bde26f/68747470733a2f2f6432656970397366336f6f3663322e636c6f756466726f6e742e6e65742f746167732f696d616765732f3030302f3030302f3235362f66756c6c2f6e6f64656a736c6f676f2e706e67" width="25" data-canonical-src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/256/full/nodejslogo.png" style="max-width:100%;"></a>
+  </li>
+  <li><em>Express Framework</em></li>
+  <li><em><a href="https://www.npmjs.com/package/jsftp" rel="nofollow">JS FTP</a></em></li>
+  <li>
+  <em>JSON</em> <a href="https://camo.githubusercontent.com/e2ef25f79c29cf6f6a98e81303634e8b5321849a/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f632f63392f4a534f4e5f766563746f725f6c6f676f2e7376672f3132303070782d4a534f4e5f766563746f725f6c6f676f2e7376672e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/e2ef25f79c29cf6f6a98e81303634e8b5321849a/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f632f63392f4a534f4e5f766563746f725f6c6f676f2e7376672f3132303070782d4a534f4e5f766563746f725f6c6f676f2e7376672e706e67" width="25" data-canonical-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/1200px-JSON_vector_logo.svg.png" style="max-width:100%;"></a>
+  </li>
+  </ul>
+  <h3>
+  <a id="user-content-heart-run-this-code-with" class="anchor" href="#heart-run-this-code-with" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji> Run this code with</h3>
+  <pre><code>$ npm install
+  $ node server.js
+  </code></pre>
+  

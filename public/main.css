@@ -1,21 +1,246 @@
+:root{
+  --primary: #0078e7;
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
     font-family: "Fira Code", Times, serif;
 }
 
-.landing-page {
+a {
+  color: var(--primary);
+}
+
+textarea {
+  height: 300px;
+  resize: none;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: default;
+}
+
+#navbar {
+  transition: top 0.5s ease-out;
+}
+
+nav {
+  display: flex !important;
+  justify-content: flex-end;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  box-shadow: 1px 2px 4px  rgba(128, 128, 128, 0.226);
+}
+
+@media screen and (max-width:425px){
+  nav ul {
+    display: none;
+  }
+}
+
+nav button, .menu__close-panel button {
+  background: transparent;
+  border: none;
+  padding: 5px;
+  font-size: 30px;
+}
+
+@media screen and (min-width:426px){
+  nav button {
+    display: none;
+  }
+}
+
+nav ul li {
+  display: inline;
+  margin:5px 10px;
+}
+
+nav ul li a {
+  text-decoration: dotted;
+  font-size: 18px;
+  color: var(--primary);
+  padding: 10px;
+}
+
+nav ul li a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.logo__title--span {
+  font-size: 50px;
+}
+
+.logo__title--h1 {
+  margin-top: 150px;
+  padding-bottom: 150px;
+}
+
+.menu--mobile {
+  display: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: white;
+  left: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.menu--mobile.active {
+  display: block;
+}
+
+.menu--mobile ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.menu--mobile ul li,.menu--mobile ul li a {
+  padding: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  color: black;
+}
+
+.menu--mobile ul li a {
+  text-decoration: none;
+}
+
+.menu--mobile ul li:hover, .menu--mobile ul li a:hover {
+  background-color: gray;
+  color: white !important;
+}
+
+.menu__close-panel {
   display: flex;
-  height: 95vh;
-  width: 100vw;
+  justify-content: flex-end;
+}
+
+.avatar img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  margin: 2.5px;
+}
+
+.section__home {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper__section__about, .wrapper__section__tryit {
+  display: flex;
+  justify-content: center;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.section__about {
+  width: 100%;
+  background: whitesmoke;
+  padding: 10px;
+  border-radius: 18px;
+  padding-top: 60px;
+}
+
+.section__about .anchor {
+  display: none;
+}
+
+.section__about code {
+  font-family: "Roboto Mono", Helvetica, sans-serif;
+  font-size: small;
+  background-color: lightgrey;
+  padding: 0px;
+  line-height: 18px;
+}
+
+.section__about pre {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+
+.section__tryit {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.wrapper__section__contributors {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.section__contributors {
+  padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: whitesmoke;
+  box-shadow: inset 0px 2px 4px rgba(128, 128, 128, 0.226);
+  width: 50%;
+  min-width: 320px;
+  border-radius: 12px;
+}
+
+.headline {
+  text-align: center;
+}
+
+.wrapper__form, .wrapper__json__panel {
+  padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: whitesmoke;
+  box-shadow: inset 0px 2px 4px rgba(128, 128, 128, 0.226);
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__json__panel {
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
+
+.pure-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.pure-form label {
+  color: gray;
+  width: 100%;
+  font-weight: bold;
+}
+
+.pure-form input {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+
 footer {
-  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,6 +260,7 @@ hr {
   border-style: dotted;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 code {
