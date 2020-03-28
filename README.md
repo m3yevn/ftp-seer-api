@@ -18,8 +18,8 @@ Docker CLI must be installed beforehand.
 ### [![Run on Docker](https://img.shields.io/docker/pulls/m3yevn/ftp-seer?style=for-the-badge)](https://hub.docker.com/repository/docker/m3yevn/ftp-seer)
 
 ```sh
-$ docker pull m3yevn/ftpseer:latest
-$ docker run -d --name ftpseer -p 5050:5050  m3yevn/ftp-seer:latest
+$ docker pull m3yevn/ftp-seer:latest
+$ docker run -d --name ftp-seer -p 5050:5050  m3yevn/ftp-seer:latest
 ```
 
 Now, FTP Seer is accessible at 5050 port of your workstation.
