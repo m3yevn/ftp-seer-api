@@ -115,7 +115,7 @@ async function getContributors() {
   contributor_list.forEach(contributor => {
     if (contributor.type !== "Bot") {
     const col_item = `<div class="avatar pure-u-2-12">`+
-    `<img src="${contributor.avatar_url}" alt="${contributor.login} />`+
+    `<img src="${contributor.avatar_url}" alt="${contributor.login}" />`+
     `</div>`;
     innerHTML += col_item;
     }
