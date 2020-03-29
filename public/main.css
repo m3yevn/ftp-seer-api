@@ -245,12 +245,12 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: darkgrey;
   color: white;
 }
 
 footer a {
-  color: palevioletred;
+  color: var(--primary);
 }
 
 .subtitle {
