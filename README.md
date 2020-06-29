@@ -1,4 +1,5 @@
 # FTP Seer - A Backend for browsing FTP directory :package:
+by m3yevn and team
 
 This API server is used to accept host,port,path,username and password to <br/>
 connect FTP server and send back directory data.
