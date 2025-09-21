@@ -8,13 +8,16 @@ const logger = Loglestial.init({
   environment: process.env.NODE_ENV || 'development'
 });
 
-// Create logs directory if it doesn't exist
+// Create logs directory if it doesn't exist (skip in Vercel)
 const fs = require('fs');
 const path = require('path');
 
-const logsDir = path.join(process.cwd(), 'logs');
-if (!fs.existsSync(logsDir)) {
-  fs.mkdirSync(logsDir, { recursive: true });
+// Only create logs directory in non-Vercel environments
+if (!process.env.VERCEL) {
+  const logsDir = path.join(process.cwd(), 'logs');
+  if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir, { recursive: true });
+  }
 }
 
 // Add request logging method for Morgan compatibility
