@@ -27,10 +27,17 @@ morgan.token('date', () => {
 app.use(morgan('combined', { stream: logger.stream }));
 
 //Serve static HTML //Add routes called ftpseer //Add 404 route
-app.use('/', express.static('public'))
+app.use(express.static('public'));
 app.use('/favicon.ico', express.static('public/favicon.ico'));
 app.get('/favicon.ico', (req, res) => res.status(204));
-app.use('/api', routes)
+
+// Serve index.html for root route
+app.get('/', (req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
+app.use('/api', routes);
+
 app.use('*', (_, res) => {
   res.status(404).json({ error: 404, message: "Route not found" });
 });
