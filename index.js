@@ -47,31 +47,35 @@ const port = process.env.PORT || keys.port;
 // For Vercel: use default host (undefined), for local development: use 0.0.0.0 for WSL
 const host = process.env.VERCEL ? undefined : (process.env.HOST || '0.0.0.0');
 
-app.listen(port, host, () => {
-  logger.info(`Server is listening at ${host || 'default'}:${port}`, {
-    port: port,
-    host: host || 'default',
-    environment: process.env.NODE_ENV || 'development',
-    version: version,
-    platform: process.env.VERCEL ? 'vercel' : 'local',
-    accessUrl: `http://${host || 'localhost'}:${port}`,
-    packageInfo: {
-      name: name,
-      description: description,
-      author: author,
-      license: license,
-      publicRepo: publicRepo
-    }
-  });
+// Export app for Vercel
+module.exports = app;
 
-    if (!process.env.VERCEL) {
-      console.log(`🚀 Server running on port ${port}`);
-      console.log(`📦 ${name} v${version} - ${description}`);
-      console.log(`👤 Author: ${author}`);
-      console.log(`📄 License: ${license}`);
-      console.log(`🔗 Repository: ${publicRepo}`);
-      console.log(`🌐 Access from Windows browser: http://localhost:${port}`);
-      console.log(`🔗 Direct WSL access: http://172.18.240.145:${port}`);
-      console.log(`📱 Access from WSL: http://localhost:${port}`);
-    }
-});
+// Start server only in non-Vercel environments
+if (!process.env.VERCEL) {
+  app.listen(port, host, () => {
+    logger.info(`Server is listening at ${host || 'default'}:${port}`, {
+      port: port,
+      host: host || 'default',
+      environment: process.env.NODE_ENV || 'development',
+      version: version,
+      platform: process.env.VERCEL ? 'vercel' : 'local',
+      accessUrl: `http://${host || 'localhost'}:${port}`,
+      packageInfo: {
+        name: name,
+        description: description,
+        author: author,
+        license: license,
+        publicRepo: publicRepo
+      }
+    });
+
+    console.log(`🚀 Server running on port ${port}`);
+    console.log(`📦 ${name} v${version} - ${description}`);
+    console.log(`👤 Author: ${author}`);
+    console.log(`📄 License: ${license}`);
+    console.log(`🔗 Repository: ${publicRepo}`);
+    console.log(`🌐 Access from Windows browser: http://localhost:${port}`);
+    console.log(`🔗 Direct WSL access: http://172.18.240.145:${port}`);
+    console.log(`📱 Access from WSL: http://localhost:${port}`);
+  });
+}
