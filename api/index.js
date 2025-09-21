@@ -1,15 +1,15 @@
 // Imports
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require("./routes");
+const routes = require("../routes");
 const morgan = require('morgan');
-const logger = require("./utils/logger");
+const logger = require("../utils/logger");
 const cors = require('cors');
 const responseTime = require('response-time');
-const keys = require('./config/keys');
+const keys = require('../config/keys');
 const { version, name,
   description, author,
-  license, publicRepo } = require('./package.json');
+  license, publicRepo } = require('../package.json');
 
 //Declare Express App //Add bodyparser for JSON  //Add CORS policy
 const app = express();
@@ -27,13 +27,13 @@ morgan.token('date', () => {
 app.use(morgan('combined', { stream: logger.stream }));
 
 //Serve static HTML //Add routes called ftpseer //Add 404 route
-app.use(express.static('public'));
-app.use('/favicon.ico', express.static('public/favicon.ico'));
+app.use(express.static('../public'));
+app.use('/favicon.ico', express.static('../public/favicon.ico'));
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 // Serve index.html for root route
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+  res.sendFile('index.html', { root: '../public' });
 });
 
 app.use('/api', routes);
