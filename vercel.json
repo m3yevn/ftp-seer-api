@@ -1,59 +1,18 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/releases/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/about.html",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/index.html",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/index.min.html",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/main.css",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/main.min.css",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/main.js",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/main.min.js",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/",
-      "dest": "/index.js"
+      "dest": "/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "/api/index.js"
     }
   ],
   "env": {
