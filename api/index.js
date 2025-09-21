@@ -27,13 +27,16 @@ morgan.token('date', () => {
 app.use(morgan('combined', { stream: logger.stream }));
 
 //Serve static HTML //Add routes called ftpseer //Add 404 route
-app.use(express.static('../public'));
-app.use('/favicon.ico', express.static('../public/favicon.ico'));
+const path = require('path');
+const publicPath = path.join(__dirname, '../public');
+
+app.use(express.static(publicPath));
+app.use('/favicon.ico', express.static(path.join(publicPath, 'favicon.ico')));
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 // Serve index.html for root route
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: '../public' });
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 app.use('/api', routes);
