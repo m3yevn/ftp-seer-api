@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTP Seer API v3.0.1 Release Notes</title>
+    <meta name="description" content="Release notes for FTP Seer API version 3.0.1 - Major updates including controller-service pattern, Loglestial logging, Vercel deployment, and SEO optimization.">
+    <meta name="author" content="Kevin Moe Myint Myat (m3yevn)">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .version { color: #007bff; font-size: 2.5em; font-weight: bold; margin: 0; }
+        .date { color: #6c757d; font-size: 1.1em; margin: 10px 0; }
+        .section { margin: 25px 0; }
+        .section h2 { color: #343a40; border-bottom: 2px solid #007bff; padding-bottom: 5px; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin: 10px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; }
+        .feature-list li:before { content: "✅ "; font-weight: bold; }
+        .breaking { background: #fff3cd !important; border-left-color: #ffc107 !important; }
+        .breaking:before { content: "⚠️ "; }
+        .new { background: #d4edda !important; border-left-color: #28a745 !important; }
+        .new:before { content: "🆕 "; }
+        .improvement { background: #d1ecf1 !important; border-left-color: #17a2b8 !important; }
+        .improvement:before { content: "🔧 "; }
+        .back-link { text-align: center; margin-top: 30px; }
+        .back-link a { color: #007bff; text-decoration: none; font-weight: bold; }
+        .back-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="version">FTP Seer API v3.0.1</h1>
+            <p class="date">Released: December 19, 2024</p>
+            <p><strong>Author:</strong> Kevin Moe Myint Myat (m3yevn)</p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Major Updates</h2>
+            <ul class="feature-list">
+                <li class="breaking">Complete architectural refactoring to Controller-Service pattern</li>
+                <li class="new">Integrated Loglestial logging system replacing Winston</li>
+                <li class="new">Full Vercel deployment optimization and compatibility</li>
+                <li class="new">Comprehensive SEO optimization with structured data</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ Architecture Improvements</h2>
+            <ul class="feature-list">
+                <li class="improvement">Separated business logic into services layer</li>
+                <li class="improvement">Clean controller layer for request handling</li>
+                <li class="improvement">Centralized logging utility with Loglestial</li>
+                <li class="improvement">Improved error handling and validation</li>
+                <li class="improvement">Better code organization and maintainability</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🌐 Deployment & Infrastructure</h2>
+            <ul class="feature-list">
+                <li class="new">Vercel deployment configuration (vercel.json)</li>
+                <li class="new">Environment-specific host binding (WSL compatibility)</li>
+                <li class="improvement">Production-ready logging configuration</li>
+                <li class="improvement">Optimized for serverless deployment</li>
+                <li class="improvement">Removed CircleCI dependencies</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎨 User Interface Enhancements</h2>
+            <ul class="feature-list">
+                <li class="new">Horizontal radio button selection for FTP servers</li>
+                <li class="new">Side-by-side form and response layout</li>
+                <li class="improvement">Equal height sections for better visual balance</li>
+                <li class="improvement">Loading states with disabled buttons and "Fetching..." text</li>
+                <li class="improvement">Responsive design improvements</li>
+                <li class="improvement">Professional button styling with PureCSS</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔍 SEO & Search Optimization</h2>
+            <ul class="feature-list">
+                <li class="new">Comprehensive meta tags with author attribution</li>
+                <li class="new">JSON-LD structured data for better Google indexing</li>
+                <li class="new">Open Graph and Twitter Card optimization</li>
+                <li class="new">Targeted keywords for FTP tools and developer resources</li>
+                <li class="improvement">Professional code tag styling with padding</li>
+                <li class="improvement">Removed non-working Replit references</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Technical Improvements</h2>
+            <ul class="feature-list">
+                <li class="improvement">Updated FTP server examples (DriveHQ, Rebex Test)</li>
+                <li class="improvement">Anonymous FTP access support</li>
+                <li class="improvement">Better error messages and validation</li>
+                <li class="improvement">Cleaner JavaScript code structure</li>
+                <li class="improvement">Simplified HTML with better semantics</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📦 Dependencies</h2>
+            <ul class="feature-list">
+                <li class="new">Added: @techlestial/loglestial@^1.0.0</li>
+                <li class="new">Added: morgan@^1.9.1</li>
+                <li class="improvement">Removed: winston, winston-daily-rotate-file, app-root-path, moment-timezone, nodemon</li>
+                <li class="improvement">Updated: All dependencies to latest stable versions</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 What's New for Users</h2>
+            <ul class="feature-list">
+                <li class="new">Easy FTP server selection with radio buttons</li>
+                <li class="new">Automatic form updates based on server selection</li>
+                <li class="new">Better visual feedback during API calls</li>
+                <li class="new">Professional, responsive interface</li>
+                <li class="new">Improved search engine visibility</li>
+                <li class="new">Production-ready deployment on Vercel</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Links</h2>
+            <ul class="feature-list">
+                <li><strong>GitHub Repository:</strong> <a href="https://github.com/m3yevn/ftp-seer-api" target="_blank">https://github.com/m3yevn/ftp-seer-api</a></li>
+                <li><strong>Live Demo:</strong> <a href="https://ftp-seer-api.vercel.app" target="_blank">https://ftp-seer-api.vercel.app</a></li>
+                <li><strong>Author GitHub:</strong> <a href="https://github.com/m3yevn" target="_blank">https://github.com/m3yevn</a></li>
+                <li><strong>Author Twitter:</strong> <a href="https://twitter.com/yevn_m3" target="_blank">@yevn_m3</a></li>
+            </ul>
+        </div>
+
+        <div class="back-link">
+            <a href="/" target="_blank">← Back to FTP Seer API</a>
+        </div>
+    </div>
+</body>
+</html>

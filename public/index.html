@@ -4,10 +4,14 @@
 <head profile="http://www.w3.org/2005/10/profile">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta data-n-head="1" data-hid="description" name="description"
-    content="The FTP Seer API helps you explore remote server directories via FTP by using JSFTP library.">
-  <meta data-n-head="1" name="keywords"
-    content="ftpseer, ftpseer chrome, ftpseer online, ftpseer for mac, ftpseer app, ftpseer for windows, ftpseer google chrome, ftpseer chrome app, get ftpseer, ftpseer web, ftpseer android, ftpseer app for chrome, ftpseer mobile app, ftpseer web app, api, request, tool, rest, ftp, seer, ftpseer backend, ftpseer backend api, ftpseer server">
+  <meta name="description" content="FTP Seer API by Kevin Moe Myint Myat (m3yevn) - Explore remote FTP server directories via REST API. Free FTP directory browser, file explorer, and FTP client API for developers.">
+  <meta name="keywords" content="ftp seer, ftp api, ftp directory browser, ftp file explorer, ftp client api, kevin moe myint myat, m3yevn, ftp server explorer, ftp rest api, ftp directory listing, ftp file download, ftp browser tool, ftp web client, ftp javascript api, ftp nodejs, ftp automation, ftp integration, ftp development tool, ftp testing, ftp debugging">
+  <meta name="author" content="Kevin Moe Myint Myat (m3yevn)">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="en">
+  <meta name="revisit-after" content="7 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
   <meta data-n-head="1" name="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta data-n-head="1" itemprop="name" content="FTP Seer • Backend API">
   <meta data-n-head="1" itemprop="description"
@@ -18,20 +22,22 @@
   <meta data-n-head="1" name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta data-n-head="1" name="apple-mobile-web-app-title" content="FTP Seer">
   <meta data-n-head="1" name="msapplication-tap-highlight" content="no">
-  <meta data-n-head="1" property="og:site_name" content="FTP Seer API">
-  <meta data-n-head="1" property="og:url" content="https://ftpseer.herokuapp.com">
-  <meta data-n-head="1" property="og:type" content="website">
-  <meta data-n-head="1" property="og:title" content="FTP Seer API">
-  <meta data-n-head="1" property="og:description"
-    content="The FTP Seer API helps you explore remote server directories via FTP by using JSFTP library.">
-  <meta data-n-head="1" property="og:image" content="/assets/logo.jpg">
-  <meta data-n-head="1" name="twitter:site" content="@yevn_m3">
-  <meta data-n-head="1" name="twitter:creator" content="@yevn_m3">
-  <meta data-n-head="1" name="twitter:url" content="https://ftpseer.herokuapp.com">
-  <meta data-n-head="1" name="twitter:title" content="FTP Seer API">
-  <meta data-n-head="1" name="twitter:description"
-    content="The FTP Seer API helps you explore remote server directories via FTP by using JSFTP library.">
-  <meta data-n-head="1" name="twitter:image" content="https://ftpseer.herokuapp.com/assets/logo.jpg">
+  <meta property="og:site_name" content="FTP Seer API">
+  <meta property="og:url" content="https://ftp-seer-api.vercel.app">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FTP Seer API - FTP Directory Browser by Kevin Moe Myint Myat (m3yevn)">
+  <meta property="og:description" content="Free FTP directory browser and file explorer API. Explore remote FTP servers via REST API. Built by Kevin Moe Myint Myat (m3yevn) for developers.">
+  <meta property="og:image" content="/assets/logo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yevn_m3">
+  <meta name="twitter:creator" content="@yevn_m3">
+  <meta name="twitter:url" content="https://ftp-seer-api.vercel.app">
+  <meta name="twitter:title" content="FTP Seer API - FTP Directory Browser by Kevin Moe Myint Myat (m3yevn)">
+  <meta name="twitter:description" content="Free FTP directory browser and file explorer API. Explore remote FTP servers via REST API. Built by Kevin Moe Myint Myat (m3yevn) for developers.">
+  <meta name="twitter:image" content="https://ftp-seer-api.vercel.app/assets/logo.jpg">
   <meta data-n-head="1" data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
   <meta data-n-head="1" data-hid="author" name="author" content="Kevin Moe Myint Myat">
   <meta data-n-head="1" data-hid="theme-color" name="theme-color" content="#202124">
@@ -44,7 +50,44 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="main.min.css" />
-  <title>FTP Seer API</title>
+  <title>FTP Seer API - FTP Directory Browser by Kevin Moe Myint Myat (m3yevn)</title>
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FTP Seer API",
+    "description": "Free FTP directory browser and file explorer API. Explore remote FTP servers via REST API.",
+    "url": "https://ftp-seer-api.vercel.app",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Kevin Moe Myint Myat",
+      "alternateName": "m3yevn",
+      "url": "https://github.com/m3yevn",
+      "sameAs": [
+        "https://github.com/m3yevn",
+        "https://twitter.com/yevn_m3"
+      ]
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Kevin Moe Myint Myat",
+      "alternateName": "m3yevn"
+    },
+    "keywords": "ftp seer, ftp api, ftp directory browser, ftp file explorer, ftp client api, kevin moe myint myat, m3yevn, ftp server explorer, ftp rest api, ftp directory listing, ftp file download, ftp browser tool, ftp web client, ftp javascript api, ftp nodejs, ftp automation, ftp integration, ftp development tool, ftp testing, ftp debugging",
+    "inLanguage": "en",
+    "dateCreated": "2020",
+    "dateModified": "2024"
+  }
+  </script>
 </head>
 
 <body>
@@ -73,8 +116,10 @@
       <img src="favicon.ico" alt="logo" /><br />
       <span class="subtitle">A Backend for exploring FTP Directory</span>
       <br />
+      <span style="color: #007bff; font-size: 0.9em; font-weight: bold;">Version 3.0.1</span>
       <br />
-      <span class="subtitle"><code>$ Explore remote server directories via FTP.</code>
+      <br />
+      <span class="subtitle"><code style="padding: 4px 8px; background-color: #f5f5f5; border-radius: 4px; font-family: 'Fira Code', monospace;">$ Explore remote server directories via FTP.</code>
         <br />
         <hr />
         <button class="pure-button pure-button-primary" onclick="gotoroutes()">GET STARTED</button>
@@ -93,24 +138,42 @@
   </section>
   <div class="wrapper__section__tryit">
     <section class="section__tryit" id="tryit">
-      <div class="pure-g">
-        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1">
-          <div class="wrapper__form">
+      <div class="pure-g" style="display: flex; align-items: stretch;">
+        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1" style="display: flex;">
+          <div class="wrapper__form" style="width: 100%;">
             <div class="pure-form">
-              <label>Try ftpseer/directory?</label>
-              <input id="input__directory" type="text" placeholder="Enter the route endpoint" value="host=speedtest.tele2.net&path=." />
-              <button id="btn__fetch__directory" class="pure-button pure-button-primary" onclick="fetchDirectory()">Fetch!</button>
+              <label><strong>Select FTP Server:</strong></label>
+              <div style="margin: 10px 0; display: flex; gap: 15px;">
+                <label style="display: flex; align-items: center; gap: 5px;">
+                  <input type="radio" name="ftp-server" value="drivehq" checked onchange="updateFormInputs()"> DriveHQ
+                </label>
+                <label style="display: flex; align-items: center; gap: 5px;">
+                  <input type="radio" name="ftp-server" value="rebex" onchange="updateFormInputs()"> Rebex Test
+                </label>
+                <label style="display: flex; align-items: center; gap: 5px;">
+                  <input type="radio" name="ftp-server" value="custom" onchange="updateFormInputs()"> Custom Server
+                </label>
+              </div>
               <hr />
-              <label>Try ftpseer/file?</label>
-              <input id="input__file" type="text" placeholder="Enter the route endpoint" value="host=speedtest.tele2.net&path=./upload/{xxx}.zip" />
-              <button id="btn__fetch__file" class="pure-button pure-button-primary" onclick="fetchFile()">Fetch!</button>
+              <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                  <label>Try api/directory?</label>
+                  <input id="input__directory" type="text" value="host=ftp.drivehq.com&path=." style="width: 100%; margin-bottom: 10px;" />
+                  <button id="btn__fetch__directory" class="pure-button pure-button-primary" onclick="fetchDirectory()">Fetch!</button>
+                </div>
+                <div style="flex: 1;">
+                  <label>Try api/file?</label>
+                  <input id="input__file" type="text" value="host=ftp.drivehq.com&path=ftp_help.htm" style="width: 100%; margin-bottom: 10px;" />
+                  <button id="btn__fetch__file" class="pure-button pure-button-primary" onclick="fetchFile()">Fetch!</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1">
-          <div class="wrapper__json__panel" id="response">
+        <div class="pure-u-lg-1-2 pure-u-md-1-2 pure-u-1" style="display: flex;">
+          <div class="wrapper__json__panel" id="response" style="width: 100%; display: flex; flex-direction: column;">
             <label>Response:</label>
-            <textarea id="textarea__json__result" readonly></textarea>
+            <textarea id="textarea__json__result" readonly style="flex: 1; min-height: 200px;"></textarea>
           </div>
         </div>
       </div>
@@ -127,9 +190,32 @@
   </div>
   <footer>
     <p>Crafted with ❤️ by <a href="https://github.com/m3yevn">Kevin Moe Myint Myat (m3yevn)</a></p>
+    <p><a href="/releases/3.0.1.html" target="_blank">📋 View Release Notes v3.0.1</a></p>
   </footer>
 </body>
 <script type="text/javascript" src="main.min.js"></script>
+<script>
+function updateFormInputs() {
+  const selectedServer = document.querySelector('input[name="ftp-server"]:checked').value;
+  const directoryInput = document.getElementById("input__directory");
+  const fileInput = document.getElementById("input__file");
+  
+  switch(selectedServer) {
+    case 'drivehq':
+      directoryInput.value = "host=ftp.drivehq.com&path=.";
+      fileInput.value = "host=ftp.drivehq.com&path=readme.txt";
+      break;
+    case 'rebex':
+      directoryInput.value = "host=test.rebex.net&path=.";
+      fileInput.value = "host=test.rebex.net&path=readme.txt";
+      break;
+    case 'custom':
+      directoryInput.value = "host=your-ftp-server.com&path=.";
+      fileInput.value = "host=your-ftp-server.com&path=filename.txt";
+      break;
+  }
+}
+</script>
 </body>
 
 </html>

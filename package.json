@@ -1,27 +1,23 @@
 {
   "name": "ftp-seer",
-  "version": "2.1.0",
+  "version": "3.0.1",
   "description": "A Backend API server for exploring FTP directory",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "author": "Kevin Moe Myint Myat",
-  "publicRepo": "https://github.com/m3yevn/ftpseer",
+  "publicRepo": "https://github.com/m3yevn/ftp-seer-api",
   "license": "MIT",
   "dependencies": {
-    "app-root-path": "^2.2.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsftp": "^2.1.3",
-    "moment-timezone": "^0.5.25",
+    "@techlestial/loglestial": "^1.0.0",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.1",
-    "response-time": "^2.3.2",
-    "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.9.0"
+    "response-time": "^2.3.2"
   },
   "devDependencies": {}
 }

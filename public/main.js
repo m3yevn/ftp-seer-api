@@ -47,7 +47,28 @@ async function getAbout() {
 }
 
 function gotoroutes() {
-  window.location.href = "/ftpseer";
+  window.location.href = "/api";
+}
+
+function updateFormInputs() {
+  const selectedServer = document.querySelector('input[name="ftp-server"]:checked').value;
+  const directoryInput = document.getElementById("input__directory");
+  const fileInput = document.getElementById("input__file");
+  
+  switch(selectedServer) {
+    case 'drivehq':
+      directoryInput.value = "host=ftp.drivehq.com&path=.";
+      fileInput.value = "host=ftp.drivehq.com&path=ftp_help.htm";
+      break;
+    case 'rebex':
+      directoryInput.value = "host=test.rebex.net&path=.";
+      fileInput.value = "host=test.rebex.net&path=readme.txt";
+      break;
+    case 'custom':
+      directoryInput.value = "host=your-ftp-server.com&path=.";
+      fileInput.value = "host=your-ftp-server.com&path=filename.txt";
+      break;
+  }
 }
 
 function hideNavbar() {
@@ -63,35 +84,17 @@ function hideNavbar() {
 async function fetchDirectory() {
   let input_directory = document.getElementById("input__directory").value;
   let json_result = document.getElementById("textarea__json__result");
+  let btn_directory = document.getElementById("btn__fetch__directory");
   let btn_file = document.getElementById("btn__fetch__file");
   window.location = '#response';
 
   try {
-    btn_file.setAttribute('disabled', true);
-    json_result.innerText = "Fetching...";
-    const result = await fetch("ftpseer/directory?" + input_directory);
-    if (!result) {
-      return;
-    }
-    const innerText = await result.json();
-    json_result.innerText = JSON.stringify(innerText);
-  } catch (ex) {
-    json_result.innerText = ex.message;
-  } finally {
-    btn_file.removeAttribute('disabled');
-  }
-}
-
-async function fetchFile() {
-  let input_file = document.getElementById("input__file").value;
-  let json_result = document.getElementById("textarea__json__result");
-  let btn_directory = document.getElementById("btn__fetch__directory");
-  window.location.href = '#response';
-
-  try {
     btn_directory.setAttribute('disabled', true);
+    btn_file.setAttribute('disabled', true);
+    btn_directory.innerText = "Fetching...";
+    btn_file.innerText = "Fetching...";
     json_result.innerText = "Fetching...";
-    const result = await fetch("ftpseer/file?" + input_file);
+    const result = await fetch("api/directory?" + input_directory);
     if (!result) {
       return;
     }
@@ -101,6 +104,38 @@ async function fetchFile() {
     json_result.innerText = ex.message;
   } finally {
     btn_directory.removeAttribute('disabled');
+    btn_file.removeAttribute('disabled');
+    btn_directory.innerText = "Fetch!";
+    btn_file.innerText = "Fetch!";
+  }
+}
+
+async function fetchFile() {
+  let input_file = document.getElementById("input__file").value;
+  let json_result = document.getElementById("textarea__json__result");
+  let btn_directory = document.getElementById("btn__fetch__directory");
+  let btn_file = document.getElementById("btn__fetch__file");
+  window.location.href = '#response';
+
+  try {
+    btn_directory.setAttribute('disabled', true);
+    btn_file.setAttribute('disabled', true);
+    btn_directory.innerText = "Fetching...";
+    btn_file.innerText = "Fetching...";
+    json_result.innerText = "Fetching...";
+    const result = await fetch("api/file?" + input_file);
+    if (!result) {
+      return;
+    }
+    const innerText = await result.json();
+    json_result.innerText = JSON.stringify(innerText);
+  } catch (ex) {
+    json_result.innerText = ex.message;
+  } finally {
+    btn_directory.removeAttribute('disabled');
+    btn_file.removeAttribute('disabled');
+    btn_directory.innerText = "Fetch!";
+    btn_file.innerText = "Fetch!";
   }
 }
 
