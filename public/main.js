@@ -1,49 +1,43 @@
 function popupmenu() {
-  let menu = document.getElementById("menu--mobile");
-  menu.classList.add("active");
+  document.getElementById("menu--mobile").classList.add("active");
 }
 
 function closemenu() {
-  let menu = document.getElementById("menu--mobile");
-  menu.classList.remove("active");
+  document.getElementById("menu--mobile").classList.remove("active");
 }
 
 async function convertMarkdown(markdown) {
   const result = await fetch("https://api.github.com/markdown/raw", {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain'
-    },
-    body: markdown
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: markdown,
   });
-  if (!result) {
-    return;
-  }
-
+  if (!result.ok) return null;
   return result.text();
 }
 
 async function getAbout() {
-  const result = await fetch("https://raw.githubusercontent.com/m3yevn/ftp-seer/master/README.md");
-  if (!result) {
-    return;
-  }
+  const about = document.getElementById("about-content");
+  if (!about) return;
 
-  const resultText = await result.text();
-  const htmlText = await convertMarkdown(resultText)
+  try {
+    const result = await fetch(
+      "https://raw.githubusercontent.com/m3yevn/ftp-seer-api/master/README.md"
+    );
+    if (!result.ok) throw new Error("README fetch failed");
 
-  if (!htmlText) {
-    return;
-  }
-  let about = document.getElementById("about");
-  if (htmlText.includes("API rate limit exceeded for")) {
-    about.innerHTML = await fetch("about.html").then(result => {
-      return result.text();
-    });
-    return;
-  }
+    const markdown = await result.text();
+    const html = await convertMarkdown(markdown);
 
-  about.innerHTML = htmlText;
+    if (!html || html.includes("API rate limit exceeded")) {
+      about.innerHTML = await fetch("/about.html").then((r) => r.text());
+      return;
+    }
+
+    about.innerHTML = html;
+  } catch {
+    about.innerHTML = await fetch("/about.html").then((r) => r.text());
+  }
 }
 
 function gotoroutes() {
@@ -51,125 +45,123 @@ function gotoroutes() {
 }
 
 function updateFormInputs() {
-  const selectedServer = document.querySelector('input[name="ftp-server"]:checked').value;
+  const selected = document.querySelector('input[name="ftp-server"]:checked').value;
   const directoryInput = document.getElementById("input__directory");
   const fileInput = document.getElementById("input__file");
-  
-  switch(selectedServer) {
-    case 'drivehq':
-      directoryInput.value = "host=ftp.drivehq.com&path=.";
-      fileInput.value = "host=ftp.drivehq.com&path=ftp_help.htm";
-      break;
-    case 'rebex':
-      directoryInput.value = "host=test.rebex.net&path=.";
-      fileInput.value = "host=test.rebex.net&path=readme.txt";
-      break;
-    case 'custom':
-      directoryInput.value = "host=your-ftp-server.com&path=.";
-      fileInput.value = "host=your-ftp-server.com&path=filename.txt";
-      break;
-  }
+
+  const presets = {
+    drivehq: {
+      dir: "host=ftp.drivehq.com&path=.",
+      file: "host=ftp.drivehq.com&path=readme.txt",
+    },
+    rebex: {
+      dir: "host=test.rebex.net&path=.",
+      file: "host=test.rebex.net&path=readme.txt",
+    },
+    custom: {
+      dir: "host=your-ftp-server.com&path=.",
+      file: "host=your-ftp-server.com&path=filename.txt",
+    },
+  };
+
+  const p = presets[selected];
+  directoryInput.value = p.dir;
+  fileInput.value = p.file;
 }
 
 function hideNavbar() {
-  let currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-60px";
+  const navbar = document.getElementById("navbar");
+  const current = window.pageYOffset;
+  if (prevScrollpos > current) {
+    navbar.classList.remove("hidden");
+  } else if (current > 80) {
+    navbar.classList.add("hidden");
   }
-  prevScrollpos = currentScrollPos;
+  prevScrollpos = current;
 }
 
 async function fetchDirectory() {
-  let input_directory = document.getElementById("input__directory").value;
-  let json_result = document.getElementById("textarea__json__result");
-  let btn_directory = document.getElementById("btn__fetch__directory");
-  let btn_file = document.getElementById("btn__fetch__file");
-  window.location = '#response';
+  const input = document.getElementById("input__directory").value;
+  const output = document.getElementById("textarea__json__result");
+  const btnDir = document.getElementById("btn__fetch__directory");
+  const btnFile = document.getElementById("btn__fetch__file");
+  location.hash = "response";
 
   try {
-    btn_directory.setAttribute('disabled', true);
-    btn_file.setAttribute('disabled', true);
-    btn_directory.innerText = "Fetching...";
-    btn_file.innerText = "Fetching...";
-    json_result.innerText = "Fetching...";
-    const result = await fetch("api/directory?" + input_directory);
-    if (!result) {
-      return;
-    }
-    const innerText = await result.json();
-    json_result.innerText = JSON.stringify(innerText);
+    btnDir.disabled = true;
+    btnFile.disabled = true;
+    btnDir.textContent = "Fetching…";
+    output.value = "Fetching…";
+    const res = await fetch("/api/directory?" + input);
+    const data = await res.json();
+    output.value = JSON.stringify(data, null, 2);
   } catch (ex) {
-    json_result.innerText = ex.message;
+    output.value = ex.message;
   } finally {
-    btn_directory.removeAttribute('disabled');
-    btn_file.removeAttribute('disabled');
-    btn_directory.innerText = "Fetch!";
-    btn_file.innerText = "Fetch!";
+    btnDir.disabled = false;
+    btnFile.disabled = false;
+    btnDir.textContent = "Fetch";
+    btnFile.textContent = "Fetch";
   }
 }
 
 async function fetchFile() {
-  let input_file = document.getElementById("input__file").value;
-  let json_result = document.getElementById("textarea__json__result");
-  let btn_directory = document.getElementById("btn__fetch__directory");
-  let btn_file = document.getElementById("btn__fetch__file");
-  window.location.href = '#response';
+  const input = document.getElementById("input__file").value;
+  const output = document.getElementById("textarea__json__result");
+  const btnDir = document.getElementById("btn__fetch__directory");
+  const btnFile = document.getElementById("btn__fetch__file");
+  location.hash = "response";
 
   try {
-    btn_directory.setAttribute('disabled', true);
-    btn_file.setAttribute('disabled', true);
-    btn_directory.innerText = "Fetching...";
-    btn_file.innerText = "Fetching...";
-    json_result.innerText = "Fetching...";
-    const result = await fetch("api/file?" + input_file);
-    if (!result) {
-      return;
-    }
-    const innerText = await result.json();
-    json_result.innerText = JSON.stringify(innerText);
+    btnDir.disabled = true;
+    btnFile.disabled = true;
+    btnFile.textContent = "Fetching…";
+    output.value = "Fetching…";
+    const res = await fetch("/api/file?" + input);
+    const data = await res.json();
+    output.value = JSON.stringify(data, null, 2);
   } catch (ex) {
-    json_result.innerText = ex.message;
+    output.value = ex.message;
   } finally {
-    btn_directory.removeAttribute('disabled');
-    btn_file.removeAttribute('disabled');
-    btn_directory.innerText = "Fetch!";
-    btn_file.innerText = "Fetch!";
+    btnDir.disabled = false;
+    btnFile.disabled = false;
+    btnDir.textContent = "Fetch";
+    btnFile.textContent = "Fetch";
   }
+}
+
+function routeToGithub(url) {
+  window.open(url, "_blank", "noopener");
 }
 
 async function getContributors() {
-  let contributors = document.getElementById("list__contributors");
-  const result = await fetch("https://api.github.com/repos/m3yevn/ftp-seer/contributors");
-  if (!result) {
-    return;
-  }
-  const contributor_list = await result.json();
-  let innerHTML = "";
-  contributor_list.forEach(contributor => {
-    if (contributor.type !== "Bot") {
-    const col_item = `<div class="avatar pure-u-2-12">`+
-    `<img src="${contributor.avatar_url}" alt="${contributor.login}" onclick="routeToGithub('${contributor.html_url}')" />`+
-    `</div>`;
-    innerHTML += col_item;
-    }
-  });
-  contributors.innerHTML  = innerHTML;
-}
+  const list = document.getElementById("list__contributors");
+  if (!list) return;
 
+  try {
+    const res = await fetch(
+      "https://api.github.com/repos/m3yevn/ftp-seer-api/contributors"
+    );
+    if (!res.ok) return;
+    const contributors = await res.json();
+    list.innerHTML = contributors
+      .filter((c) => c.type !== "Bot")
+      .map(
+        (c) =>
+          `<div class="avatar"><img src="${c.avatar_url}" alt="${c.login}" onclick="routeToGithub('${c.html_url}')" /></div>`
+      )
+      .join("");
+  } catch {
+    /* contributors optional */
+  }
+}
 
 let prevScrollpos = window.pageYOffset;
 
-window.onload = () => {
+window.addEventListener("load", () => {
   getAbout();
   getContributors();
-}
+});
 
-window.onscroll = () => {
-  hideNavbar();
-}
-
-window.onhashchange = () => {
-  closemenu();
-}
+window.addEventListener("scroll", hideNavbar);
+window.addEventListener("hashchange", closemenu);

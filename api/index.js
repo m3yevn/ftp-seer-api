@@ -39,6 +39,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
+app.get('/docs', (req, res) => {
+  res.sendFile(path.join(publicPath, 'docs.html'));
+});
+
 app.use('/api', routes);
 
 app.use('*', (_, res) => {

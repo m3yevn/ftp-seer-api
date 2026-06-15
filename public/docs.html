@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs — FTP Seer API</title>
+  <meta name="description" content="FTP Seer API documentation — endpoints, query params, quick start." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/main.css" />
+  <style>
+    .docs-page { padding: 100px 0 80px; }
+    .docs-content { max-width: 720px; margin: 0 auto; }
+    .docs-content h1 { font-size: 2rem; margin-bottom: 12px; }
+    .docs-lead { color: var(--muted); margin-bottom: 40px; }
+    .docs-content section { margin-bottom: 36px; }
+    .docs-content h2 { font-size: 1.25rem; margin-bottom: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .docs-content h2:first-of-type { border-top: none; padding-top: 0; }
+    .code-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    .docs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0; }
+    .docs-table th, .docs-table td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .docs-table th { background: var(--bg-card); }
+    .docs-table code { font-family: var(--mono); color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="navbar">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">📂</span>
+        <span class="logo-text">FTP<strong>Seer</strong> API</span>
+      </a>
+      <nav class="nav">
+        <a href="/docs" aria-current="page">Docs</a>
+        <a href="/#tryit">Try it</a>
+        <a href="https://ftp-seer-client.vercel.app" rel="noopener">Client</a>
+        <a href="https://github.com/m3yevn/ftp-seer-api" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="docs-page">
+    <div class="container docs-content">
+      <h1>API documentation</h1>
+      <p class="docs-lead">REST API for listing and reading files on remote FTP servers.</p>
+
+      <section>
+        <h2>Endpoints</h2>
+        <pre class="code-block">GET /api/directory?host=...&amp;path=...
+GET /api/file?host=...&amp;path=...
+GET /health</pre>
+      </section>
+
+      <section>
+        <h2>Query parameters</h2>
+        <table class="docs-table">
+          <thead><tr><th>Param</th><th>Required</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>host</code></td><td>Yes</td><td>FTP hostname</td></tr>
+            <tr><td><code>path</code></td><td>Yes</td><td>Directory or file path</td></tr>
+            <tr><td><code>port</code></td><td>No</td><td>Default <code>21</code></td></tr>
+            <tr><td><code>username</code></td><td>No</td><td>FTP user (anonymous if omitted)</td></tr>
+            <tr><td><code>password</code></td><td>No</td><td>FTP password</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Example</h2>
+        <pre class="code-block">curl "https://ftp-seer-api.vercel.app/api/directory?host=test.rebex.net&amp;path=."</pre>
+      </section>
+
+      <section>
+        <h2>Related</h2>
+        <p><a href="https://ftp-seer-client.vercel.app">ftp-seer-client</a> — Astro web UI · <a href="/">API home</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built by <a href="https://github.com/m3yevn">m3yevn</a></p>
+    </div>
+  </footer>
+</body>
+</html>
