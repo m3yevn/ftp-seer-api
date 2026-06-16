@@ -39,6 +39,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
+app.get('/health', (req, res) => {
+  res.json({ success: true, service: 'ftp-seer-api', version });
+});
+
 app.get('/docs', (req, res) => {
   res.sendFile(path.join(publicPath, 'docs.html'));
 });
